@@ -1,12 +1,57 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-<title>Page Title</title>
-</head>
-<body>
+	<head>
+		<title>Token</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+		<!-- Header -->
+			<header id="header">
+				<h1>Token</h1>
+				<p>Send encypted, self-destructive text<br />
+				asdasdasd <a href="http://html5up.net">asdasdsad</a>.</p>
+			</header>
 
-</body>
+		<!-- Signup Form -->
+			<form id="signup-form" method="post" action="#">
+				<input type="text" name="email" id="email" placeholder="Insert Text" />
+				<input type="submit" value="Encrypt" />
+			</form>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Mehul.</li><li>Credits: <a href="http://html5up.net">Mehul Ajith</a></li>
+				</ul>
+			</footer>
+
+		<!-- Scripts -->
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
+			<script>
+  			// Initialize Firebase
+  			var config = {
+    		apiKey: "AIzaSyAcGqnKfb0zN3k2-l4YPkxpgV0PRz-mUPA",
+    		authDomain: "token-86662.firebaseapp.com",
+    		databaseURL: "https://token-86662.firebaseio.com",
+		    projectId: "token-86662",
+    		storageBucket: "token-86662.appspot.com",
+    		messagingSenderId: "112282056739"
+  		};
+
+			firebase.initializeApp(config);
+			</script>
+	</body>
 </html>
