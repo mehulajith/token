@@ -1,4 +1,7 @@
 
+window.alert("Hello")
+
+
 (function() {
 
 	"use strict";
