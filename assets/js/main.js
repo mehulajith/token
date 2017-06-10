@@ -1,7 +1,34 @@
 
-window.alert("Hello")
+var mainText = document.getElementById("email");
+var submitBtn = document.getElementById("submitBtn");
+var passcode = "example"
 
+var firebaseRef = firebase.database().ref();
 
+console.log(firebase);
+
+function makeid()
+{
+    var text = "";
+    var possible = "abcdefghijklmnopqrstuvwxyz";
+
+    for( var i=0; i < 5; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    passcode = text
+}
+
+function submitClick() {
+
+		makeid()
+
+		var messageText = mainText.value;
+
+		firebaseRef.child(passcode).set(messageText)
+
+}
+
+// UI SCRIPT
 (function() {
 
 	"use strict";
@@ -160,7 +187,7 @@ window.alert("Hello")
 								$submit.disabled = false;
 
 							// Show message.
-								$message._show('success', 'Thank you!');
+								$message._show('success', passcode);
 								//$message._show('failure', 'Something went wrong. Please try again.');
 
 						}, 750);

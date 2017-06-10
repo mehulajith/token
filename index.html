@@ -18,7 +18,7 @@
 		<!-- Signup Form -->
 			<form id="signup-form" method="post" action="#">
 				<input type="text" name="email" id="email" placeholder="Insert Text" />
-				<input type="submit" value="Encrypt" />
+				<input id="submitBtn" onclick="submitClick()" type="submit" value="Encrypt" />
 			</form>
 
 		<!-- Footer -->
@@ -36,10 +36,7 @@
 
 		<!-- Scripts -->
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
 			<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-			<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
-			<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
 			<script>
   			// Initialize Firebase
   			var config = {
@@ -53,5 +50,7 @@
 
 			firebase.initializeApp(config);
 			</script>
+
+			<script src="assets/js/main.js"></script>
 	</body>
 </html>
