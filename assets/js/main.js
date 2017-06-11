@@ -1,7 +1,14 @@
 
 var mainText = document.getElementById("email");
 var submitBtn = document.getElementById("submitBtn");
+var decodedText = document.getElementById("message");
 var passcode = "example"
+var decText = ""
+
+// Timer
+var counter = 10;
+var newElement = document.getElementById("title");
+var id;
 
 var firebaseRef = firebase.database().ref();
 
@@ -13,9 +20,9 @@ function makeid()
     var possible = "abcdefghijklmnopqrstuvwxyz";
 
     for( var i=0; i < 5; i++ )
-        text += possible.charAt(Math.floor(Math.random() * possible.length)) + "0tkn";
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
 
-    passcode = text;
+    passcode = text + "0tkn";
 }
 
 function submitClick() {
@@ -23,10 +30,29 @@ function submitClick() {
 		makeid()
 
 		var messageText = mainText.value;
+    var firebaseDecodeRef = firebase.database().ref().child(messageText);
 
-		if messageText
+		if (messageText.endsWith('0tkn')) {
+        firebaseDecodeRef.on('value', function(snap){
+          decText = snap.val();
+          decodedText.innerText = decText
 
-		firebaseRef.child(passcode).set(messageText)
+          passcode = "successfully decrypted!"
+
+          id = setInterval(function() {
+              counter--;
+              if(counter < 0) {
+                newElement.innerHTML = "Token"
+                firebaseDecodeRef.remove()
+                clearInterval(id);
+              } else {
+                newElement.innerHTML = "Message will self-destruct in " + counter.toString() + " seconds.";
+              }
+            }, 1000);
+          })
+    } else {
+        firebaseRef.child(passcode).set(messageText)
+    }
 
 }
 
@@ -189,10 +215,10 @@ function submitClick() {
 								$submit.disabled = false;
 
 							// Show message.
-								$message._show('success', passcode);
+								$message._show('success', "share your code:" + passcode);
 								//$message._show('failure', 'Something went wrong. Please try again.');
 
-						}, 750);
+						}, 1200);
 
 				});
 
