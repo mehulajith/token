@@ -13,9 +13,9 @@ function makeid()
     var possible = "abcdefghijklmnopqrstuvwxyz";
 
     for( var i=0; i < 5; i++ )
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
+        text += possible.charAt(Math.floor(Math.random() * possible.length)) + "0tkn";
 
-    passcode = text
+    passcode = text;
 }
 
 function submitClick() {
@@ -23,6 +23,8 @@ function submitClick() {
 		makeid()
 
 		var messageText = mainText.value;
+
+		if messageText
 
 		firebaseRef.child(passcode).set(messageText)
 
